@@ -351,7 +351,7 @@ h3 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-image: url('resources/images/rewviews_background.webp');
+	background-image: url('resources/images/rewviews_background.png');
 	background-color: #000000;
 }
 
@@ -545,7 +545,7 @@ h3 {
 }
 
 .over_signin::before {
-	content: url(resources//images//arrow.webp);
+	content: url(resources//images//arrow.png);
 	position: relative;
 	width: 56px;
 	height: 41px;
@@ -724,7 +724,7 @@ footer p {
 	height: 50px;
 	background-color: #ff6d6d;
 	border: none;
-	background-image: url(resources/images/plane.webp);
+	background-image: url(resources/images/plane.png);
 	background-repeat: no-repeat;
 	background-position: center;
 }
