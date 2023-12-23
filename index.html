@@ -1,0 +1,937 @@
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello, AMPs</title>
+    <link
+      rel="canonical"
+      href="https://amp.dev/ru/documentation/guides-and-tutorials/start/create/basic_markup/"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": ["logo.jpg"]
+      }
+    </script>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @font-face {
+        font-family: 'Exo';
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/exo/v12/4UaZrEtFpBI4f1ZSIK9d4LjJ4tM3CwM.ttf)
+          format('truetype');
+      }
+      body {
+        font-family: 'Exo', sans-serif;
+        font-weight: 500;
+        margin: 0px;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      header {
+        width: 100%;
+        height: 55vw;
+        min-height: 550px;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background-image: url('resources/images/background_0.webp');
+      }
+      header span {
+        font-weight: 300;
+        font-size: 60px;
+        text-align: center;
+        margin: 30px;
+      }
+      @media screen and (max-width: 1000px) {
+        header span {
+          font-size: 30px;
+        }
+      }
+      #try_button {
+        color: #fff;
+        border-color: transparent;
+        background-color: #ff6d6d;
+        border-radius: 3px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+        text-decoration: none;
+        margin-top: 30px;
+      }
+      #play_button {
+        position: relative;
+        margin: 30px;
+      }
+      #play_button img {
+        position: absolute;
+      }
+      #play_0 {
+        top: -30px;
+        left: -30px;
+        opacity: 0.5;
+      }
+      #play_1 {
+        top: -10px;
+        left: -7px;
+      }
+      .about {
+        width: 100%;
+        height: 500px;
+        display: flex;
+      }
+      @media screen and (max-width: 600px) {
+        .about {
+          height: 800px;
+        }
+      }
+      .about_content {
+        width: 65%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media screen and (max-width: 1200px) {
+        .about_content {
+          width: 100%;
+        }
+      }
+      .about_content_div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+      }
+      .about_image {
+        width: 35%;
+        height: 100%;
+        z-index: 1;
+      }
+      @media screen and (max-width: 1200px) {
+        .about_image {
+          display: none;
+        }
+      }
+      .about_content_div {
+        padding-left: 150px;
+        padding-right: 150px;
+      }
+      @media screen and (max-width: 800px) {
+        .about_content_div {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+      h2 {
+        margin-top: 0px;
+        font-size: 40px;
+        z-index: 1;
+      }
+      h3 {
+        font-size: 16px;
+        color: #ff8a8a;
+        margin-bottom: 0px;
+      }
+      .features {
+        width: 100%;
+        height: 700px;
+        background-color: #f6f5f3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .features h2 {
+        text-align: center;
+      }
+      @media screen and (max-width: 800px) {
+        .features {
+          height: 1000px;
+        }
+      }
+      #pen_holder {
+        position: absolute;
+        height: 250px;
+        left: 10%;
+        top: 0px;
+        z-index: 0;
+      }
+      @media screen and (max-width: 800px) {
+        #pen_holder {
+          display: none;
+        }
+      }
+      #earphones {
+        position: absolute;
+        height: 250px;
+        right: 10%;
+        top: -30px;
+        z-index: 0;
+      }
+      @media screen and (max-width: 800px) {
+        #earphones {
+          display: none;
+        }
+      }
+      #coffee_cup {
+        position: absolute;
+        height: 130px;
+        right: 8%;
+        bottom: 0px;
+        z-index: 0;
+      }
+      @media screen and (max-width: 800px) {
+        #coffee_cup {
+          display: none;
+        }
+      }
+      .features_div {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        z-index: 1;
+      }
+      @media screen and (max-width: 800px) {
+        .features_div {
+          flex-direction: column;
+          width: 90%;
+        }
+      }
+      .features_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        width: 20%;
+      }
+      .features_item p {
+        text-align: center;
+      }
+      .features_item h4 {
+        text-align: center;
+      }
+      @media screen and (max-width: 800px) {
+        .features_item {
+          width: 90%;
+        }
+      }
+      .laptop {
+        width: 100%;
+        height: 700px;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      #pen_holder {
+        position: absolute;
+      }
+      .laptop::before {
+        content: '';
+        width: 15%;
+        height: 0%;
+        position: absolute;
+        border-bottom: 800px solid #ff8a8a;
+        border-right: 500px solid transparent;
+        left: 0;
+        top: 0;
+        z-index: -1;
+      }
+      .laptop_content {
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      @media screen and (max-width: 900px) {
+        .laptop_content {
+          flex-direction: column;
+        }
+      }
+      .macbook {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 40%;
+        width: auto;
+        height: auto;
+      }
+      @media screen and (max-width: 900px) {
+        .macbook {
+          max-width: 400px;
+          width: auto;
+          height: auto;
+        }
+      }
+      .laptop_text {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+      }
+      @media screen and (max-width: 900px) {
+        .laptop_text {
+          width: 90%;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .laptop_text h3 {
+          color: #000000;
+        }
+      }
+      .laptop_text span {
+        color: #ff8a8a;
+      }
+      @media screen and (max-width: 900px) {
+        .laptop_text span {
+          color: #000000;
+        }
+      }
+      .reviews {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url('resources/images/rewviews_background.png');
+        background-color: #000;
+      }
+      @media screen and (min-width: 1350px) {
+        .reviews {
+          height: 800px;
+        }
+      }
+      @media screen and (min-width: 900px) and (max-width: 1350px) {
+        .reviews {
+          height: 1200px;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .reviews {
+          height: 1500px;
+        }
+      }
+      .reviews_peoples {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .review {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 450px;
+      }
+      .avatar {
+        max-width: 150px;
+        border-radius: 80px;
+      }
+      .review_name {
+        font-size: 22px;
+        color: #fff;
+        margin-bottom: 0px;
+      }
+      .reviews_position {
+        font-size: 16px;
+        color: #ff6d6d;
+        margin: 0px 0px 10px;
+      }
+      .reviews_text {
+        width: 70%;
+        text-align: center;
+        color: #b3b4b6;
+        line-height: 26px;
+        padding: 0px;
+        font-style: italic;
+      }
+      .reviews_companies {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .reviews_companies img {
+        margin: 20px 40px;
+        filter: invert(80%);
+        max-width: 100%;
+        height: auto;
+      }
+      .bottom_features {
+        width: 100%;
+        height: 700px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: end;
+      }
+      @media screen and (max-width: 600px) {
+        .bottom_features {
+          height: 600px;
+        }
+      }
+      .bottom_features p {
+        max-width: 700px;
+        text-align: center;
+        margin-bottom: 70px;
+      }
+      @media screen and (max-width: 600px) {
+        .bottom_features p {
+          max-width: 90%;
+        }
+      }
+      .bottom_features h2 {
+        text-align: center;
+      }
+      .bottom_features img {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-width: 40%;
+        width: auto;
+        height: auto;
+        max-width: 90%;
+      }
+      .designers {
+        background-color: #323969;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .designers h2 {
+        color: #fff;
+        text-align: center;
+      }
+      .designers h3 {
+        margin-top: 80px;
+      }
+      .designers form {
+        display: flex;
+        align-items: end;
+        max-width: 1400px;
+        width: 90%;
+        margin-bottom: 30px;
+      }
+      @media screen and (max-width: 1300px) {
+        .designers form {
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+      .designers input {
+        color: #fff;
+        background-color: #464c77;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        max-width: 280px;
+        width: 100%;
+        height: 50px;
+        margin: 15px;
+        padding-left: 30px;
+      }
+      .designers button {
+        color: #fff;
+        background-color: #ff6d6d;
+        border: 1px solid #ff6d6d;
+        border-radius: 5px;
+        max-width: 280px;
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+      }
+      .designers div {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: start;
+        max-width: 280px;
+        width: 100%;
+        height: 150px;
+        margin: 15px;
+      }
+      .over_signin {
+        font-weight: 400;
+        font-size: 13px;
+        color: #f6f5f3;
+        margin-bottom: 30px;
+        text-align: right;
+        margin-right: 1%;
+        top: -50px;
+      }
+      .over_signin::before {
+        content: url(resources//images//arrow.png);
+        position: relative;
+        width: 56px;
+        height: 41px;
+        top: 25px;
+      }
+      ::placeholder {
+        color: #f6f5f3;
+      }
+      .designers_bottom_p {
+        color: #f6f5f3;
+        margin-bottom: 100px;
+      }
+      .designers_bottom_a {
+        color: #f6f5f3;
+      }
+      footer {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        height: 400px;
+        width: 100%;
+      }
+      @media screen and (max-width: 1100px) {
+        footer {
+          justify-content: space-evenly;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        footer {
+          flex-direction: column;
+          height: 800px;
+        }
+      }
+      footer input {
+        color: #fff;
+        background-color: #f6f6f6;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        width: 100%;
+        height: 50px;
+        padding-left: 30px;
+      }
+      footer input::placeholder {
+        color: #949494;
+      }
+      footer h4 {
+        margin-top: 0px;
+        margin-bottom: 38px;
+      }
+      @media screen and (max-width: 800px) {
+        footer h4 {
+          margin-bottom: 10px;
+        }
+      }
+      footer p {
+        margin-top: 0px;
+        margin-bottom: 5px;
+      }
+      @media screen and (min-width: 1100px) {
+        footer::after {
+          content: '';
+          position: relative;
+          top: 0px;
+          right: 0;
+          width: 0%;
+          height: 0;
+          border-top: 400px solid #ff8a8a;
+          border-left: 383px solid transparent;
+          z-index: -1;
+        }
+      }
+      .footer_column {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        justify-content: start;
+        height: 150px;
+        max-width: 260px;
+        width: 15%;
+      }
+      @media screen and (min-width: 1400px) {
+        .footer_column {
+          padding-right: 30px;
+        }
+      }
+      @media screen and (min-width: 800px) and (max-width: 1400px) {
+        .footer_column {
+          padding-right: 5px;
+          width: 25%;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        .footer_column {
+          align-items: center;
+          padding-right: 0px;
+          width: 90%;
+          max-width: 90%;
+        }
+      }
+      .footer_column_with_left_padding {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        justify-content: start;
+        height: 150px;
+        max-width: 260px;
+        width: 15%;
+      }
+      @media screen and (min-width: 1400px) {
+        .footer_column_with_left_padding {
+          padding-right: 30px;
+        }
+      }
+      @media screen and (min-width: 800px) and (max-width: 1400px) {
+        .footer_column_with_left_padding {
+          padding-right: 5px;
+          width: 25%;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        .footer_column_with_left_padding {
+          align-items: center;
+          padding-right: 0px;
+          width: 90%;
+          max-width: 90%;
+        }
+      }
+      @media screen and (min-width: 1400px) {
+        .footer_column_with_left_padding {
+          max-width: 170px;
+          padding-left: 70px;
+        }
+      }
+      @media screen and (min-width: 600px) and (max-width: 1400px) {
+        .footer_column_with_left_padding {
+          max-width: 170px;
+          padding-left: 0px;
+        }
+      }
+      .newsletter_submit {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      @media screen and (max-width: 800px) {
+        .newsletter_submit {
+          width: 90%;
+        }
+      }
+      .newsletter_submit button {
+        width: 70px;
+        height: 50px;
+        background-color: #ff6d6d;
+        border: none;
+        background-image: url(resources/images/plane.png);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .footer_companies {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
+      .footer_companies img {
+        margin: 5px 10px;
+        filter: gray;
+        -webkit-filter: grayscale(1);
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    <header>
+      <span
+        >There is no other<br />
+        platforms for you as like</span
+      >
+      <a id="play_button" href="https://lms.uni-dubna.ru">
+        <img id="play_0" src="resources/images/play_0.png" alt="play_0" />
+        <img id="play_1" src="resources/images/play_1.png" alt="play_1" />
+      </a>
+      <a id="try_button" href="https://lms.uni-dubna.ru">TRY NOW</a>
+      <p>*No need to add cards details*</p>
+    </header>
+    <section class="about">
+      <div class="about_content">
+        <div class="about_content_div">
+          <h3>NEW DESIGN</h3>
+          <h2>
+            There is no other platforms for you as like<span
+              style="color: #ff6d6d"
+              >....</span
+            >
+          </h2>
+
+          <p>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet
+            fermentum. Aenean lacinia bibendum nulla sed consectetur.
+          </p>
+          <p>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet
+            fermentum. Aenean lacinia bibendum nulla sed consectetur.
+          </p>
+        </div>
+      </div>
+      <img
+        class="about_image"
+        src="resources/images/about_image.png"
+        alt="about_image"
+      />
+    </section>
+
+    <section class="features">
+      <img
+        id="pen_holder"
+        src="resources/images/pen_holder.png"
+        alt="pen_holder"
+      />
+
+      <img
+        id="earphones"
+        src="resources/images/earphones.png"
+        alt="earphones"
+      />
+
+      <img
+        id="coffee_cup"
+        src="resources/images/coffee_cup.png"
+        alt="coffee_cup"
+      />
+
+      <h3>NEW FEATURES</h3>
+      <h2>Some awesome features</h2>
+      <div class="features_div">
+        <div class="features_item">
+          <img src="resources/images/picture.png" alt="picture" />
+          <h4>Some awesome features</h4>
+          <p>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+          </p>
+        </div>
+        <div class="features_item">
+          <img src="resources/images/airplane.png" alt="airplane" />
+          <h4>Some awesome features</h4>
+          <p>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+          </p>
+        </div>
+        <div class="features_item">
+          <img src="resources/images/bulb.png" />
+          <p>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="laptop">
+      <div class="laptop_content">
+        <img class="macbook" src="resources/images/macbook.png" alt="macbook" />
+
+        <div class="laptop_text">
+          <h3>NEW DESIGN</h3>
+          <h2>Resposive design, just need your tap<span>....</span></h2>
+          <p>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet
+            fermentum. Aenean lacinia bibendum nulla sed consectetur.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews">
+      <div class="reviews_peoples">
+        <div class="review">
+          <img class="avatar" src="resources/images/img_avatar.webp" alt="avatar" />
+          <p class="review_name">Jonathon Doe</p>
+          <p class="reviews_position">Co Founder</p>
+          <p class="reviews_text">
+            "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
+          </p>
+        </div>
+
+        <div class="review">
+          <img class="avatar" src="resources/images/img_avatar.webp" alt="avatar" />
+          <p class="review_name">Jonathon Doe</p>
+          <p class="reviews_position">Co Founder</p>
+          <p class="reviews_text">
+            "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
+          </p>
+        </div>
+
+        <div class="review">
+          <img class="avatar" src="resources/images/img_avatar.webp" alt="avatar" />
+          <p class="review_name">Jonathon Doe</p>
+          <p class="reviews_position">Co Founder</p>
+          <p class="reviews_text">
+            "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
+          </p>
+        </div>
+      </div>
+
+      <div class="reviews_companies">
+        <img src="resources/images/companies/0.png" alt="company_0" />
+        <img src="resources/images/companies/1.png" alt="company_1" />
+        <img src="resources/images/companies/2.png" alt="company_2" />
+        <img src="resources/images/companies/3.png" alt="company_3" />
+        <img src="resources/images/companies/4.png" alt="company_4" />
+      </div>
+    </section>
+
+    <section class="bottom_features">
+      <h3>NEW FEATURES</h3>
+      <h2>Some awesome features</h2>
+      <p>
+        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet
+        fermentum. Aenean lacinia bibendum nulla sed consectetur.
+      </p>
+      <img src="resources/images/window.png" alt="window" />
+    </section>
+
+    <section class="designers">
+      <h3>NEW FEATURES</h3>
+      <h2>Over 1000 designers are using ...</h2>
+      <form>
+        <input id="name" size="30" placeholder="FULL NAME" />
+        <input type="email" id="email" size="30" placeholder="YOUR EMAIL" />
+        <input type="password" id="password" size="30" placeholder="PASSWORD" />
+        <div>
+          <p class="over_signin">30 free tips and tricks for all.</p>
+          <button type="button" id="try_now_button_header">TRY NOW</button>
+        </div>
+      </form>
+      <p class="designers_bottom_p">
+        By Signing up you agree to our
+        <a href="https://www.google.com" class="designers_bottom_a"
+          >terms & Services</a
+        >
+      </p>
+    </section>
+
+    <footer>
+      <div class="footer_column">
+        <img
+          style="margin-bottom: 15px"
+          src="resources/images/footer_logo.png"
+          alt="footer_logo"
+        />
+        <p>
+          Aenean lacinia bibendum nulla sed <br />
+          consectetur. Aenean eu leo quam.<br />
+          USA & CAN: 1-888-123-4567<br />
+          Address: 34 Brokel Rd. NY
+        </p>
+      </div>
+      <div class="footer_column_with_left_padding">
+        <h4>Support</h4>
+        <p>Help Center</p>
+        <p>Get Started</p>
+        <p>Contact US</p>
+      </div>
+      <div class="footer_column_with_left_padding">
+        <h4>About US</h4>
+        <p>About US</p>
+        <p>Terms of Use</p>
+        <p>Privacy Policy</p>
+      </div>
+      <div class="footer_column">
+        <h4>Get Newsletter</h4>
+        <div class="newsletter_submit">
+          <input type="email" id="footer_email" size="30" placeholder="EMAIL" />
+          <button type="button" id="try_now_button"></button>
+        </div>
+        <div class="footer_companies">
+          <img
+            style="width: auto; height: 15px"
+            src="resources/images/companies/dribbble.png"
+            alt="airplane"
+          />
+          <img
+            style="width: auto; height: 15px"
+            src="resources/images/companies/facebook.png"
+            alt="airplane"
+          />
+          <img
+            style="width: auto; height: 15px"
+            src="resources/images/companies/googleplus.png"
+            alt="airplane"
+          />
+          <img
+            style="width: auto; height: 15px"
+            src="resources/images/companies/twitter.png"
+            alt="airplane"
+          />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
